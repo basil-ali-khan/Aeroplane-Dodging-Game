@@ -27,9 +27,10 @@ module playfield(hpos, vpos, playfield_gfx);
   output playfield_gfx;
   
   reg [31:0] maze [0:27];
-  
-  wire [4:0] x = hpos[7:3];
-  wire [4:0] y = vpos[7:3] - 2;
+  wire [9:0] x = hpos - 304; // Center the maze on the screen
+  wire [9:0] y = vpos - 224;
+//  wire [4:0] x = hpos[7:3];
+//  wire [4:0] y = vpos[7:3] - 2;
   
   assign playfield_gfx = maze[y][x];
   
