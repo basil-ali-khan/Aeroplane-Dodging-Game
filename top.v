@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-
-//input clk,
-//    input wire rst,
-//    input wire ps2d,
-//    input wire ps2c,
- 
-//    output h_sync,
-//    output v_sync,
-//    output [3:0] red,
-//    output [3:0] green,
-//    output [3:0] blue,
-//    output [0:6] seg,
-//    output [3:0] an  
-//module our_keyboard(
-//    input wire clk, reset,
-//    input wire ps2d, ps2c,
-//    output wire KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT,
-//    output reg key_release
-//);
 module top(
     input clk_100MHz,       // from Basys 3
     input reset,            // btnC on Basys 3
