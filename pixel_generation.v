@@ -71,22 +71,117 @@ module pixel_generation(
             if (game_state == 2'b01) begin
             
 //                if (
-//                sq_x_r >= 140 && sq_x_l <= 220 && sq_y_t + 32 >= 380 && sq_y_b - 32 <= 480 && direction == 2'b11 ||
-//                sq_x_l <= 220 && sq_x_r >= 140 && sq_y_t + 32 >= 380 && sq_y_b - 32 <= 480 && direction == 2'b10
-//                ) begin
-//                    lives_rem = lives_rem - 2'b01;
-//                end
-                
-//                else begin
+//                ((direction == 3'b010) &&!((sq_x_reg - x_delta_reg) >= 100 &&(sq_x_reg - x_delta_reg) <= 200 && (sq_y_reg >= 50-31) && (sq_y_reg <= 150)) &&
+                            !((sq_x_reg - x_delta_reg) >= 120 && (sq_x_reg - x_delta_reg) <= 140 && (sq_y_reg >= 0) && (sq_y_reg <= 70)) &&
+                            !((sq_x_reg - x_delta_reg) >= 240 && (sq_x_reg - x_delta_reg) <= 280 && (sq_y_reg >= 120-31) && (sq_y_reg <= 180)) &&
+                            !((sq_x_reg - x_delta_reg) >= 320 && (sq_x_reg - x_delta_reg) <= 340 && (sq_y_reg >= 0) && (sq_y_reg <= 90)) && 
+//                                !((sq_x_reg - x_delta_reg-16) >= 340 && (sq_x_reg - x_delta_reg-16) <= 370 && (sq_y_reg >= 40) && (sq_y_reg <= 60)) &&
+                            !((sq_x_reg - x_delta_reg) >= 470 && (sq_x_reg - x_delta_reg) <= 590 && (sq_y_reg >= 35-31) && (sq_y_reg <= 150)) &&
+//                            !((sq_x_reg - x_delta_reg) >= 370 && (sq_x_reg - x_delta_reg) <= 400 && (sq_y_reg >= 180) && (sq_y_reg <= 220)) &&
+                            !((sq_x_reg - x_delta_reg) >= 550 && (sq_x_reg - x_delta_reg) <= 640 && (sq_y_reg >= 250-31) && (sq_y_reg <= 270)) &&
+                            !((sq_x_reg - x_delta_reg) >= 500 && (sq_x_reg - x_delta_reg) <= 530 && (sq_y_reg >= 320-31) && (sq_y_reg <= 480)) &&
+//                                !((sq_x_reg - x_delta_reg-16) >= 140 && (sq_x_reg - x_delta_reg-16) <= 160 && (sq_y_reg >= 200) && (sq_y_reg <= 250)) &&
+                            !((sq_x_reg - x_delta_reg) >= 140 && (sq_x_reg - x_delta_reg) <= 220 && (sq_y_reg >= 380-31) && (sq_y_reg <= 480)) &&
+                            !((sq_x_reg - x_delta_reg) >= 180 && (sq_x_reg - x_delta_reg) <= 280 && (sq_y_reg >= 300-31) && (sq_y_reg <= 320)) &&
+                            !((sq_x_reg - x_delta_reg) >= 260 && (sq_x_reg - x_delta_reg) <= 370 && (sq_y_reg >= 230-31) && (sq_y_reg <= 250)) &&
+//                            !((sq_x_reg - x_delta_reg) >= 30 &&  (sq_x_reg - x_delta_reg) <= 60 &&   (sq_y_reg >= 160) && (sq_y_reg <= 240)) &&
+                            !((sq_x_reg - x_delta_reg) >= 60 &&  (sq_x_reg - x_delta_reg) <= 90 &&   (sq_y_reg >= 160-31) && (sq_y_reg <= 180)) &&
+                            !((sq_x_reg - x_delta_reg) >= 320 && (sq_x_reg - x_delta_reg) <= 340 && (sq_y_reg >= 280-31) && (sq_y_reg <= 300)) &&
+//                                !((sq_x_reg - x_delta_reg-16) >= 370 && (sq_x_reg - x_delta_reg-16) <= 440 && (sq_y_reg >= 250) && (sq_y_reg <= 290)) &&
+                            !((sq_x_reg - x_delta_reg) >= 420 && (sq_x_reg - x_delta_reg) <= 440 && (sq_y_reg >= 290-31) && (sq_y_reg <= 320)) &&
+//                            !((sq_x_reg - x_delta_reg) >= 140 && (sq_x_reg - x_delta_reg) <= 160 && (sq_y_reg >= 200) && (sq_y_reg <= 250)) &&
+                            !((sq_x_reg - x_delta_reg) >= 60 && (sq_x_reg - x_delta_reg) <= 140 && (sq_y_reg >= 260-31) && (sq_y_reg <= 290)) &&
+                            !((sq_x_reg - x_delta_reg) >= 490 && (sq_x_reg - x_delta_reg) <= 510 && (sq_y_reg >= 180-31) && (sq_y_reg <= 280)) &&
+                            !((sq_x_reg - x_delta_reg) >= 120 && (sq_x_reg - x_delta_reg) <= 140 && (sq_y_reg >= 270-31) && (sq_y_reg <= 320))) 
+                            ||
+                   ((direction == 3'b011) &&!((sq_x_reg + x_delta_reg +16 ) >= 100 && (sq_x_reg + x_delta_reg +16) <= 200 && (sq_y_reg >= 50-31) && (sq_y_reg <= 150)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 120 && (sq_x_reg + x_delta_reg +16) <= 140 && (sq_y_reg >= 0) && (sq_y_reg <= 70)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 240 && (sq_x_reg + x_delta_reg +16) <= 280 && (sq_y_reg >= 120-31) && (sq_y_reg <= 180)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 320 && (sq_x_reg + x_delta_reg +16) <= 340 && (sq_y_reg >= 0 ) && (sq_y_reg <= 90)) && 
+//                                !((sq_x_reg + x_delta_reg +16 ) >= 340 && (sq_x_reg + x_delta_reg +16) <= 370 && (sq_y_reg >= 40) && (sq_y_reg <= 60)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 470 && (sq_x_reg + x_delta_reg +16) <= 590 && (sq_y_reg >= 35-31 ) && (sq_y_reg <= 150)) &&
+//                            !((sq_x_reg + x_delta_reg +16 ) >= 370 && (sq_x_reg + x_delta_reg +16) <= 400 && (sq_y_reg >= 180) && (sq_y_reg <= 220)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 550 && (sq_x_reg + x_delta_reg +16) <= 640 && (sq_y_reg >= 250-31) && (sq_y_reg <= 270)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 500 && (sq_x_reg + x_delta_reg +16) <= 530 && (sq_y_reg >= 320-31) && (sq_y_reg <= 480)) &&
+//                                !((sq_x_reg + x_delta_reg +16 ) >= 140 && (sq_x_reg + x_delta_reg +16) <= 160 && (sq_y_reg >= 200) && (sq_y_reg <= 250)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 140 && (sq_x_reg + x_delta_reg +16) <= 220 && (sq_y_reg >= 380-31) && (sq_y_reg <= 480)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 180 && (sq_x_reg + x_delta_reg +16) <= 280 && (sq_y_reg >= 300-31) && (sq_y_reg <= 320)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 260 && (sq_x_reg + x_delta_reg +16) <= 370 && (sq_y_reg >= 230-31) && (sq_y_reg <= 250)) &&
+//                            !((sq_x_reg + x_delta_reg +16 ) >= 30 &&  (sq_x_reg + x_delta_reg +16) <= 60 &&  (sq_y_reg >= 160) && (sq_y_reg <= 240)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 60 &&  (sq_x_reg + x_delta_reg +16) <= 90 &&  (sq_y_reg >= 160-31) && (sq_y_reg <= 180)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 320 && (sq_x_reg + x_delta_reg +16) <= 340 && (sq_y_reg >= 280-31) && (sq_y_reg <= 300)) &&
+//                                !((sq_x_reg + x_delta_reg +16 ) >= 370 && (sq_x_reg + x_delta_reg +16) <= 440 && (sq_y_reg >= 250) && (sq_y_reg <= 290)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 420 && (sq_x_reg + x_delta_reg +16) <= 440 && (sq_y_reg >= 290-31) && (sq_y_reg <= 320)) &&
+//                            !((sq_x_reg + x_delta_reg +16 ) >= 140 && (sq_x_reg + x_delta_reg +16) <= 160 && (sq_y_reg >= 200) && (sq_y_reg <= 250)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 60 && (sq_x_reg + x_delta_reg +16) <= 140 && (sq_y_reg >= 260-31) && (sq_y_reg <= 290)) &&
+                            !((sq_x_reg + x_delta_reg + 16) >= 490 && (sq_x_reg + x_delta_reg+16) <= 510 && (sq_y_reg >= 180-31) && (sq_y_reg <= 280)) &&
+                            !((sq_x_reg + x_delta_reg +16 ) >= 120 && (sq_x_reg + x_delta_reg +16) <= 140 && (sq_y_reg >= 270-31) && (sq_y_reg <= 320)))
+                            ||
+                  ((direction == 3'b000) &&!((sq_y_reg - y_delta_reg) >= 50 &&  (sq_y_reg - y_delta_reg) <= 150 && (sq_x_reg >= 100-15) && (sq_x_reg <= 200)) &&
+                            !((sq_y_reg - y_delta_reg) >= 0 &&   (sq_y_reg - y_delta_reg) <= 70 && (sq_x_reg >= 120-15) && (sq_x_reg <= 140)) &&
+                            !((sq_y_reg - y_delta_reg) >= 120 && (sq_y_reg - y_delta_reg) <= 180 && (sq_x_reg >= 220) && (sq_x_reg <= 280)) &&
+                            !((sq_y_reg - y_delta_reg) >= 0 &&   (sq_y_reg - y_delta_reg) <= 90 && (sq_x_reg >= 320-15) && (sq_x_reg <= 340))  &&
+//                                !((sq_y_reg - y_delta_reg-32) >= 40 &&  (sq_y_reg - y_delta_reg -32) <= 60 && (sq_x_reg >= 340) && (sq_x_reg <= 370)) &&
+                            !((sq_y_reg - y_delta_reg) >= 35 &&   (sq_y_reg - y_delta_reg) <= 150 && (sq_x_reg >= 470-15) && (sq_x_reg <= 590)) &&
+//                            !((sq_y_reg - y_delta_reg) >= 180 && (sq_y_reg - y_delta_reg) <= 220 && (sq_x_reg >= 370) && (sq_x_reg <= 400)) &&
+                            !((sq_y_reg - y_delta_reg) >= 250 && (sq_y_reg - y_delta_reg) <= 270 && (sq_x_reg >= 550-15) && (sq_x_reg <= 640)) && 
+                            !((sq_y_reg - y_delta_reg) >= 320 && (sq_y_reg - y_delta_reg) <= 480 && (sq_x_reg >= 500-15) && (sq_x_reg <= 530)) &&
+//                                !((sq_y_reg - y_delta_reg-32) >= 200 && (sq_y_reg - y_delta_reg -32) <= 250 && (sq_x_reg >= 140) && (sq_x_reg <= 160)) &&
+                            !((sq_y_reg - y_delta_reg) >= 380 && (sq_y_reg - y_delta_reg) <= 480 && (sq_x_reg >= 140-15) && (sq_x_reg <= 220)) &&
+                            !((sq_y_reg - y_delta_reg) >= 300 && (sq_y_reg - y_delta_reg) <= 320 && (sq_x_reg >= 180-15) && (sq_x_reg <= 280))  &&
+                            !((sq_y_reg - y_delta_reg) >= 230 && (sq_y_reg - y_delta_reg) <= 250 && (sq_x_reg >= 260-15) && (sq_x_reg <= 370)) &&
+//                            !((sq_y_reg - y_delta_reg) >= 160 && (sq_y_reg - y_delta_reg) <= 240 && (sq_x_reg >= 30) && (sq_x_reg <= 60)) &&
+                            !((sq_y_reg - y_delta_reg) >= 160 && (sq_y_reg - y_delta_reg) <= 180 && (sq_x_reg >= 60-15) && (sq_x_reg <= 90)) &&
+                            !((sq_y_reg - y_delta_reg) >= 280 && (sq_y_reg - y_delta_reg) <= 300 && (sq_x_reg >= 320-15) && (sq_x_reg <= 340)) &&
+//                                !((sq_y_reg - y_delta_reg-32) >= 250 && (sq_y_reg - y_delta_reg -32) <= 290 && (sq_x_reg >= 370) && (sq_x_reg <= 440)) &&
+                            !((sq_y_reg - y_delta_reg) >= 290 && (sq_y_reg - y_delta_reg) <= 320 && (sq_x_reg >= 420-15) && (sq_x_reg <= 440)) &&
+//                            !((sq_y_reg - y_delta_reg) >= 200 && (sq_y_reg - y_delta_reg) <= 250 && (sq_x_reg >= 140) && (sq_x_reg <= 160))  &&
+                            !((sq_y_reg - y_delta_reg) >= 260 && (sq_y_reg - y_delta_reg) <= 290 && (sq_x_reg >= 60-15) && (sq_x_reg <= 140)) &&
+                            !((sq_y_reg - y_delta_reg) >= 180 &&   (sq_y_reg - y_delta_reg) <= 280 && (sq_x_reg >= 490-15) && (sq_x_reg <= 510)) &&
+                            !((sq_y_reg - y_delta_reg) >= 270 && (sq_y_reg - y_delta_reg) <= 320 && (sq_x_reg >= 120-15) && (sq_x_reg <= 140)))
+                            ||
+    
+    
+                    ((direction == 3'b001) && !((sq_y_reg + y_delta_reg +32) >= 50 && (sq_y_reg + y_delta_reg +32) <= 150 && (sq_x_reg >= 100-15) && (sq_x_reg <= 200)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 0 && (sq_y_reg + y_delta_reg +32) <= 70 && (sq_x_reg >= 120-15) && (sq_x_reg <= 140)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 120 && (sq_y_reg + y_delta_reg +32) <= 180 && (sq_x_reg >= 220) && (sq_x_reg <= 280)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 0 && (sq_y_reg + y_delta_reg +32) <= 90 && (sq_x_reg >= 320-15) && (sq_x_reg <= 340))  &&
+//                                !((sq_y_reg + y_delta_reg+32) >= 40 && (sq_y_reg + y_delta_reg+32) <= 60 && (sq_x_reg >= 340) && (sq_x_reg <= 370)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 35 && (sq_y_reg + y_delta_reg +32) <= 150 && (sq_x_reg >= 470-15) && (sq_x_reg <= 590)) &&
+//                            !((sq_y_reg + y_delta_reg+32) >= 180 && (sq_y_reg + y_delta_reg+32) <= 220 && (sq_x_reg >= 370) && (sq_x_reg <= 400)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 250 && (sq_y_reg + y_delta_reg +32) <= 270 && (sq_x_reg >= 550-15) && (sq_x_reg <= 640)) && 
+                            !((sq_y_reg + y_delta_reg +32) >= 320 && (sq_y_reg + y_delta_reg +32) <= 480 && (sq_x_reg >= 500-15) && (sq_x_reg <= 530)) &&
+//                                !((sq_y_reg + y_delta_reg+32) >= 200 && (sq_y_reg + y_delta_reg+32) <= 250 && (sq_x_reg >= 140) && (sq_x_reg <= 160)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 380 && (sq_y_reg + y_delta_reg +32) <= 480 && (sq_x_reg >= 140-15) && (sq_x_reg <= 220)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 300 && (sq_y_reg + y_delta_reg +32) <= 320 && (sq_x_reg >= 180-15) && (sq_x_reg <= 280))  &&
+                            !((sq_y_reg + y_delta_reg +32) >= 230 && (sq_y_reg + y_delta_reg +32) <= 250 && (sq_x_reg >= 260-15) && (sq_x_reg <= 370)) &&
+//                            !((sq_y_reg + y_delta_reg+32) >= 160 && (sq_y_reg + y_delta_reg+32) <= 240 && (sq_x_reg >= 30) && (sq_x_reg <= 60)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 160 && (sq_y_reg + y_delta_reg +32) <= 180 && (sq_x_reg >= 60-15) && (sq_x_reg <= 90)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 280 && (sq_y_reg + y_delta_reg +32) <= 300 && (sq_x_reg >= 320-15) && (sq_x_reg <= 340)) &&
+//                                !((sq_y_reg + y_delta_reg+32) >= 250 && (sq_y_reg + y_delta_reg+32) <= 290 && (sq_x_reg >= 370) && (sq_x_reg <= 440)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 290 && (sq_y_reg + y_delta_reg +32) <= 320 && (sq_x_reg >= 420-15) && (sq_x_reg <= 440)) &&
+//                            !((sq_y_reg + y_delta_reg+32) >= 200 && (sq_y_reg + y_delta_reg+32) <= 250 && (sq_x_reg >= 140) && (sq_x_reg <= 160))  &&
+                            !((sq_y_reg + y_delta_reg +32) >= 260 && (sq_y_reg + y_delta_reg +32) <= 290 && (sq_x_reg >= 60-15) && (sq_x_reg <= 140)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 180 && (sq_y_reg + y_delta_reg +32) <= 280 && (sq_x_reg >= 490-15) && (sq_x_reg <= 510)) &&
+                            !((sq_y_reg + y_delta_reg +32) >= 270 && (sq_y_reg + y_delta_reg +32) <= 320 && (sq_x_reg >= 120-15) && (sq_x_reg <= 140)))
+                            
+                            
+                ) begin
                     sq_x_reg <= sq_x_next;
                     sq_y_reg <= sq_y_next;
                     //these two lines are currently doing nothing cuz x_delta is constant for now
                     x_delta_reg <= x_delta_next;
                     y_delta_reg <= y_delta_next;
-//                end
+//                    direction <= 3'b111;
+                end
                 
-                
-                
+                else begin
+//                    lives_rem = lives_rem - 2'b01;
+                    if (lives_rem == 2'b11) lives_rem <= 2'b10; 
+                    else if (lives_rem == 2'b10) lives_rem <= 2'b01;
+                    else if (lives_rem == 2'b01) lives_rem <= 2'b00;  
+                                     
+                end                                         
                 
                 if (KEY_UP) direction <= 2'b00; // Up
                 else if (KEY_DOWN) direction <= 2'b01; // Down
