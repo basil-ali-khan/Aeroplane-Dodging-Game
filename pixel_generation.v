@@ -112,19 +112,19 @@ module pixel_generation(
     always @* begin
         x_delta_next = x_delta_reg;
         y_delta_next = y_delta_reg;
-//        if(sq_y_t < 1)                              // collide with top display edge
-//            y_delta_next = 0.5;                       // no change in y direction
-//        else if(sq_x_r >= X_MAX)                   // collide with right display edge
-//            x_delta_next = 0.5;                       // no change in x direction
+       if(sq_y_t < 1)                              // collide with top display edge
+           y_delta_next = 0.5;                       // no change in y direction
+       else if(sq_x_r >= X_MAX)                   // collide with right display edge
+           x_delta_next = 0.5;                       // no change in x direction
 
-        if(sq_y_t <= 1)                              // collide with top display edge
-            y_delta_next = 0.5;   // change y direction(move down)
-        else if(sq_y_b >= Y_MAX - 1)                     // collide with bottom display edge
-            y_delta_next = -0.5;     // change y direction(move up)
-        else if(sq_x_l <= 1)                         // collide with left display edge
-            x_delta_next = 0.5;     // change x direction(move right)
-        else if(sq_x_r >= X_MAX - 1)                     // collide with right display edge
-            x_delta_next = -0.5;     // change x direction(move left)
+        // if(sq_y_t <= 1)                              // collide with top display edge
+        //     y_delta_next = 0.5;   // change y direction(move down)
+        // else if(sq_y_b >= Y_MAX - 1)                     // collide with bottom display edge
+        //     y_delta_next = -0.5;     // change y direction(move up)
+        // else if(sq_x_l <= 1)                         // collide with left display edge
+        //     x_delta_next = 0.5;     // change x direction(move right)
+        // else if(sq_x_r >= X_MAX - 1)                     // collide with right display edge
+        //     x_delta_next = -0.5;     // change x direction(move left)
     end
     
     
